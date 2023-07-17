@@ -1,6 +1,7 @@
 // use client
 'use client';
 
+import Feed from "@/Home/Feed";
 import Sidebar from "@/components/Sidebar"
 
 const style ={
@@ -12,7 +13,7 @@ export default function Home() {
     <main className={style.wrapper}>
       <div className={style.content}>
         <Sidebar />
-        <h2>feeds</h2>
+        <Feed />
         <h2>widgets</h2>
       </div>
     </main>
