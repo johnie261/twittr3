@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+client/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node
+client/node_modules/@next/swc-linux-x64-musl/next-swc.linux-x64-musl.node
+
 # dependencies
 /node_modules
 /.pnp
