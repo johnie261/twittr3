@@ -16,6 +16,10 @@ import {
   BsPerson,
   BsPersonFill,
 } from 'react-icons/bs'
+import Link from "next/link";
+
+
+
 
 const style = {
   wrapper: `flex-[0.7] px-8 flex flex-col`,
@@ -34,6 +38,7 @@ const style = {
 
 function Sidebar({initialSelectedIcon = 'Home'}) {
   const [selected, setSelected] = useState(initialSelectedIcon)
+ 
   return (
     <div className={style.wrapper}>
       <div className={style.twitterIconContainer}>
@@ -80,7 +85,7 @@ function Sidebar({initialSelectedIcon = 'Home'}) {
         <SidebarOption 
           Icon={selected === 'Profile' ? BsPersonFill : BsPerson}
           text="Profile"
-          isActive={Boolean(setSelected === 'Profile')}
+          isActive={selected === 'Profile'}
           setSelected={setSelected}
           redirect={'/profile'}
         />

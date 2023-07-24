@@ -1,9 +1,7 @@
 'use client'
 
-import { news } from '@/lib/static'
-import React from 'react'
+import { news, whoToFollow } from '../lib/static'
 import { BiSearch } from 'react-icons/bi'
-import { whoToFollow } from '@/lib/static'
 
 const style = {
   wrapper: `flex-[1] p-4`,
@@ -27,54 +25,56 @@ const style = {
   followButton: `bg-white text-black px-3 py-1 rounded-full text-xs font-bold`,
 }
 
-const Widgets = () => {
+function Widgets() {
   return (
     <div className={style.wrapper}>
-
       <div className={style.searchBar}>
         <BiSearch className={style.searchIcon} />
-        <input type="text" placeholder="Search twitter" className={style.inputBox}/>
+        <input
+          placeholder='Search Twitter'
+          type='text'
+          className={style.inputBox}
+        />
       </div>
       <div className={style.section}>
-        <div className={style.title}>What's happening?</div>
+        <div className={style.title}>What's happening</div>
         {news.map((item, index) => (
           <div key={index} className={style.item}>
             <div className={style.newsItemLeft}>
               <div className={style.newsItemCategory}>{item.category}</div>
               <div className={style.newsItemTitle}>{item.title}</div>
             </div>
-            <div className={style.newsItemLeft}>
-              <img 
-               src={item.image}
-               alt={item.category}
-               className={style.newsItemImage}
+            <div className={style.newsItemRight}>
+              <img
+                src={item.image}
+                alt={item.category}
+                className={style.newsItemImage}
               />
             </div>
           </div>
         ))}
-        <div className={style.showMore}>show more</div>
+        <div className={style.showMore}>Show more</div>
       </div>
-
       <div className={style.section}>
         <div className={style.title}>Who to follow</div>
         {whoToFollow.map((item, index) => (
-          <div className={style.item} key={index}>
+          <div key={index} className={style.item}>
             <div className={style.followAvatarContainer}>
-              <img 
+              <img
                 src={item.avatar}
                 alt={item.handle}
                 className={style.followAvatar}
               />
             </div>
-            <div>
-              <div className={style.name}>{item.handle}</div>
-              <div className={style.handle}>{item.name}</div>
+            <div className={style.profileDetails}>
+              <div className={style.name}>{item.name}</div>
+              <div className={style.handle}>{item.handle}</div>
             </div>
             <div className={style.followButton}>Follow</div>
           </div>
         ))}
+        <div className={style.showMore}>Show more</div>
       </div>
-
     </div>
   )
 }

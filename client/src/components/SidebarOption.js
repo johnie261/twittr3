@@ -1,5 +1,6 @@
 // use client
 'use client';
+import { useRouter } from "next/navigation";
 
 const style = {
   wrapper: `w-min flex items-center rounded-[100px] p-4 cursor-pointer hover:bg-[#333c45] transition-all hover:duration-200 hover: ease-in-out`,
@@ -9,11 +10,15 @@ const style = {
  }
 
 function SidebarOption({text, Icon, isActive, setSelected, redirect }){
+   const router = useRouter()
   return (
    <div 
      className={style.wrapper}
      onClick={() => {
         setSelected(text)
+        if(redirect) {
+          router.push(redirect);
+        }
      }}
    >
     <div className={style.iconContainer}>
