@@ -1,6 +1,7 @@
 // use client
 'use client';
 
+import { Metadata } from 'next'
 import Feed from "@/Home/Feed";
 import Sidebar from "@/components/Sidebar"
 import Widgets from "@/components/Widgets";
@@ -10,7 +11,13 @@ const style ={
   content: `max-w-[1400px] w-2/3 flex justify-between`,
   feed: `flex-[2] border-r border-l border-[#38444d]`
 }
+
+ 
+const metadata = {
+  title: 'Twitter clone',
+};
 export default function Home() {
+
   return (
     <main className={style.wrapper}>
       <div className={style.content}>
